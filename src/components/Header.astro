@@ -2,25 +2,32 @@
 import Container from "@components/Container.astro";
 import Link from "@components/Link.astro";
 import { SITE } from "@consts";
+import { Image } from "astro:assets";
 ---
 
 <header transition:persist>
   <Container>
     <div class="flex flex-wrap justify-between gap-y-2">
-      <Link href="/" underline={false}>
-        <div class="font-semibold">
-          {SITE.TITLE}&nbsp;🔬
-        </div>
-      </Link>
+      <div class="flex items-center gap-2 text-sm"> 
+        <Link href="/">blog</Link>
+        <span>
+          {`by`}
+        </span>
+        <Link href="https://angelcalderon.dev/" underline={false}>
+          <div class="flex items-center font-semibold">
+            {SITE.TITLE}&nbsp;
+            <Image
+              loading="eager"
+              class=""
+              width={25}
+              height={28}
+              src={"/favicon_.webp"}
+              alt="icono de angel calderon"
+            />
+          </div>
+        </Link>
+      </div>
       <nav class="flex items-center gap-1 text-sm">
-        <Link href="/blog">blog</Link>
-        <span>
-          {`/`}
-        </span>
-        <Link href="/projects">projects</Link>
-        <span>
-          {`/`}
-        </span>
         <button
           id="magnifying-glass"
           aria-label="Search"

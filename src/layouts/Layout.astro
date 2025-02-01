@@ -4,6 +4,7 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Pagefind from "@components/PageFind.astro";
 import { SITE } from "@consts";
+import Rainy from "@components/Background.astro";
 
 type Props = {
   title: string;
@@ -19,11 +20,17 @@ const { title, description } = Astro.props;
     <Head title={`${title} | ${SITE.TITLE}`} description={description} />
   </head>
   <body>
+    <Rainy />
     <Header />
-    <main>
-      <slot />
-    </main>
-    <Footer />
-    <Pagefind />
+    <div class="z-10 relative main-section text-white backdrop-blur-md bg-black/30">
+      <main >
+        <slot />
+      
+      </main>
+      <Footer />
+      <Pagefind />
+    </div>
+   
+  
   </body>
 </html>
