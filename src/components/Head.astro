@@ -84,7 +84,9 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
 
     const backToPrev = document.getElementById("back-to-prev");
     backToPrev?.addEventListener("click", () => window.history.back());
-
+    localStorage.setItem("theme", "dark");
+    toggleTheme(true);
+    updateThemeButtons();
     const lightThemeButton = document.getElementById("light-theme-button");
     lightThemeButton?.addEventListener("click", () => {
       localStorage.setItem("theme", "light");
@@ -112,7 +114,7 @@ const { title, description, image = "/blog-placeholder-1.jpg" } = Astro.props;
         if (localStorage.theme === "system") {
           toggleTheme(event.matches);
         }
-      });
+      }); 
 
     document.addEventListener("scroll", onScroll);
   }
